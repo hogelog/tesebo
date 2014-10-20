@@ -1,6 +1,6 @@
-var config = require("config");
+var config = require("../config.json");
 
-var botName = config.get("irc")["username"];
+var botName = config["irc"]["username"];
 var pattern = new RegExp("^"+ botName + ":? ping$", "i");
 
 function listener(from, to, msg) {

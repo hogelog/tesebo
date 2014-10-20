@@ -1,9 +1,9 @@
 var tessel = require('tessel'),
-    config = require("config");
+    config = require("../config.json");
 
 var climate;
 
-var botName = config.get("irc")["username"];
+var botName = config["irc"]["username"];
 var pattern = new RegExp("^"+ botName + ":? (?:climate|temparature|humidity|気温|室温|湿度|暑い？|寒い？)$", "i");
 
 function listener(from, to, msg) {

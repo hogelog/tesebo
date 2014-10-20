@@ -1,11 +1,14 @@
-var bot = require("ircbot"),
-    config = require("config");
+console.log("Starting tesebo...");
+
+var bot = require("ircbot");
 
 process.on("uncaughtException", function(err) {
   console.log("Uncaught Exception: " + err);
 });
 
-var ircConfig = config.get("irc");
+var config = require("./config.json");
+
+var ircConfig = config["irc"];
 
 console.log("Connecting to: ", ircConfig["host"], ":", ircConfig["username"], "...");
 var tesebo = new bot(ircConfig["host"], ircConfig["username"], {
@@ -19,7 +22,7 @@ var tesebo = new bot(ircConfig["host"], ircConfig["username"], {
   channels: ["#general"]
 });
 
-var botConfig = config.get("bot");
+var botConfig = config["bot"];
 tesebo.loadPlugin("admin", {nick: botConfig["admin"], cmdprefix: ";"});
 
 var plugins = botConfig.plugins;

@@ -1,7 +1,7 @@
 var CronJob = require("cron").CronJob,
-  config = require("config");
+    config = require("../config.json");
 
-var botName = config.get("irc")["username"];
+var botName = config["irc"]["username"];
 
 function init() {
   var jobs = plugin.options.jobs;
