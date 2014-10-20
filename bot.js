@@ -1,6 +1,6 @@
 console.log("Starting tesebo...");
 
-var bot = require("ircbot");
+var Tesebo = require("./lib/tesebo").Tesebo;
 
 process.on("uncaughtException", function(err) {
   console.log("Uncaught Exception: " + err);
@@ -8,27 +8,5 @@ process.on("uncaughtException", function(err) {
 
 var config = require("./config.json");
 
-var ircConfig = config["irc"];
-
-console.log("Connecting to: ", ircConfig["host"], ":", ircConfig["username"], "...");
-var tesebo = new bot(ircConfig["host"], ircConfig["username"], {
-  port: 6667,
-  userName: ircConfig["username"],
-  password: ircConfig["password"],
-  autorejoin: true,
-  pluginsPath: "./plugins/",
-  debug: true,
-  secure: true,
-  channels: ["#general"]
-});
-
-var botConfig = config["bot"];
-tesebo.loadPlugin("admin", {nick: botConfig["admin"], cmdprefix: ";"});
-
-var plugins = botConfig.plugins;
-for (var i = 0; i < plugins.length; ++i) {
-  var plugin = plugins[i][0];
-  var options = plugins[i][1] || {};
-  console.log("Loading plugin: ", plugin);
-  tesebo.loadPlugin(plugin, options);
-}
+console.log("Connecting to: ", config.irc.host, "...");
+var tesebo = new Tesebo(config);

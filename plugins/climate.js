@@ -13,7 +13,7 @@ function listener(from, to, msg) {
   climate.readTemperature(function (err, temp) {
     climate.readHumidity(function (err, humid) {
       var message = "気温: " + temp.toFixed(1) + "℃, 湿度: " + humid.toFixed(4) + "%";
-      plugin.bot.respond({from: botName, to: to}, message);
+      plugin.bot.client.say(to, message);
     });
   });
 }
@@ -29,7 +29,7 @@ var plugin = {
   listeners: {
     message: listener
   },
-  initPlugin: init
+  init: init
 };
 
 module.exports = plugin;

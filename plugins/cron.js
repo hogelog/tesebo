@@ -16,7 +16,7 @@ function init() {
 }
 
 var plugin = {
-  initPlugin: init
+  init: init
 };
 
 module.exports = plugin;
