@@ -1,0 +1,22 @@
+{
+  "irc": {
+    "host": "hoge.irc.slack.com",
+    "username": "hoge",
+    "password": "hoge.XXXXXXXXX",
+    "channels": ["#general"]
+  },
+  "bot": {
+    "plugins": [
+      ["ping"],
+      ["cron", {
+        "jobs": [
+          ["0 * * * * *", "#general", "tessel: ping"]
+        ]
+      }],
+      ["climate", {
+        "module": "si7020",
+        "port": "A"
+      }]
+    ]
+  }
+}
