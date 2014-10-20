@@ -23,6 +23,6 @@ tesebo.loadPlugin("admin", {nick: botConfig["admin"], cmdprefix: ";"});
 var plugins = botConfig.plugins;
 for (var i = 0; i < plugins.length; ++i) {
   var plugin = plugins[i][0];
-  var opts = plugins[i][1] || {};
-  tesebo.loadPlugin(plugin, opts);
+  var options = plugins[i][1] || {};
+  tesebo.loadPlugin(plugin, options);
 }

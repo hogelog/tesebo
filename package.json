@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hogelog/tesebo",
   "dependencies": {
     "config": "^1.4.0",
+    "cron": "^1.0.5",
     "ircbot": "0.0.5"
   }
 }
