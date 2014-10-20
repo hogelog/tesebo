@@ -6,6 +6,8 @@ process.on("uncaughtException", function(err) {
 });
 
 var ircConfig = config.get("irc");
+
+console.log("Connecting to: ", ircConfig["host"], ":", ircConfig["username"], "...");
 var tesebo = new bot(ircConfig["host"], ircConfig["username"], {
   port: 6667,
   userName: ircConfig["username"],
@@ -24,5 +26,6 @@ var plugins = botConfig.plugins;
 for (var i = 0; i < plugins.length; ++i) {
   var plugin = plugins[i][0];
   var options = plugins[i][1] || {};
+  console.log("Loading plugin: ", plugin);
   tesebo.loadPlugin(plugin, options);
 }
