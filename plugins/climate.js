@@ -11,7 +11,12 @@ function listener(from, to, msg) {
     }
     climate.readTemperature(function (err, temp) {
         climate.readHumidity(function (err, humid) {
-            var message = "気温: " + temp.toFixed(1) + "℃, 湿度: " + humid.toFixed(1) + "%";
+            var message;
+            if (plugin.options.lang == "ja") {
+                message = "気温: " + temp.toFixed(1) + "℃, 湿度: " + humid.toFixed(1) + "%";
+            } else {
+                message = "Temperature: " + temp.toFixed(1) + "℃, Humidity: " + humid.toFixed(1) + "%";
+            }
             plugin.bot.client.say(to, message);
         });
     });
