@@ -4,15 +4,16 @@ var cron = require("cron"),
 var botName = config["irc"]["username"];
 
 function init() {
-    var jobs = plugin.options.jobs;
-    for (var i = 0; i < jobs.length; ++i) {
-        var time = jobs[i][0];
-        var channel = jobs[i][1];
-        var message = jobs[i][2];
-        new cron.CronJob(time, function(){
-            plugin.bot.client.emit("message", botName, channel, message);
-        }, null, true);
-    }
+    console.log("cron plugin cannot run on tessel")
+//    var jobs = plugin.options.jobs;
+//    for (var i = 0; i < jobs.length; ++i) {
+//        var time = jobs[i][0];
+//        var channel = jobs[i][1];
+//        var message = jobs[i][2];
+//        new cron.CronJob(time, function(){
+//            plugin.bot.client.emit("message", botName, channel, message);
+//        }, null, true);
+//    }
 }
 
 var plugin = {

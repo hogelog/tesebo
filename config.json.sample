@@ -9,11 +9,6 @@
     "plugins": [
       ["help"],
       ["ping"],
-      ["cron", {
-        "jobs": [
-          ["0 * * * * *", "#general", "tessel: ping"]
-        ]
-      }],
       ["climate", {
         "mock": { "temperature": 23.4, "humidity": 60.2 },
         "lang": "ja",
