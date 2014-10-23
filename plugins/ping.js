@@ -4,7 +4,7 @@ var botName = config["irc"]["username"];
 var pattern = new RegExp("^"+ botName + ":? ping$", "i");
 
 function listener(from, to, msg) {
-  if (msg.search(pattern) == -1) {
+  if (!pattern.test(msg)) {
     return;
   }
   plugin.bot.client.say(to, from + ": pong");
