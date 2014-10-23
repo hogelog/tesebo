@@ -1,4 +1,4 @@
-var CronJob = require("cron").CronJob,
+var cron = require("cron"),
     config = require("../config.json");
 
 var botName = config["irc"]["username"];
@@ -9,7 +9,7 @@ function init() {
     var time = jobs[i][0];
     var channel = jobs[i][1];
     var message = jobs[i][2];
-    new CronJob(time, function(){
+    new cron.CronJob(time, function(){
       plugin.bot.client.emit("message", botName, channel, message);
     }, null, true);
   }
