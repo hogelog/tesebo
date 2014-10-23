@@ -41,6 +41,7 @@ function init() {
 }
 
 var plugin = {
+    description: "climate - " + botName + ": climate|temparature|humidity|気温|室温|湿度|暑い？|寒い？",
     listeners: {
         message: listener
     },
