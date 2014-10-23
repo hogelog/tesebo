@@ -1,7 +1,7 @@
 var config = require("../config.json");
 
 var botName = config["irc"]["username"];
-var pattern = new RegExp("^"+ botName + ":? help$", "i");
+var pattern = new RegExp("^@?"+ botName + ":? help$", "i");
 
 function listener(from, to, msg) {
     if (!pattern.test(msg)) {
