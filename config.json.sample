@@ -3,6 +3,7 @@
     "host": "hoge.irc.slack.com",
     "username": "hoge",
     "password": "hoge.XXXXXXXXX",
+    "debug": true,
     "channels": ["#general"]
   },
   "bot": {
