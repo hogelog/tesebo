@@ -1,8 +1,5 @@
-var config = require("../config.json");
-
 var climate;
 
-var botName = config["irc"]["username"];
 var pattern = new RegExp("(?:climate|temparature|humidity|気温|室温|湿度|暑い？|寒い？)$", "i");
 
 function listener(from, to, msg) {
