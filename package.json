@@ -23,6 +23,7 @@
   "homepage": "https://github.com/hogelog/tesebo",
   "dependencies": {
     "climate-si7020": "^0.1.0",
+    "i18n": "^0.5.0",
     "irc": "git+https://github.com/hogelog/node-irc-tessel.git",
     "oft": "^0.1.1"
   }
